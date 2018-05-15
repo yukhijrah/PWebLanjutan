@@ -15,7 +15,7 @@
 //     return view('home');
 // });
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'HomeController@index');
 
 
 Route::get('/profile', function () {
@@ -28,4 +28,4 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('posts', 'PostController');
