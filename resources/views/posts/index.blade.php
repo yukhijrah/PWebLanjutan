@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+
+    @include('posts._message')
+
     <div class="row">
         <div class="col-md-10">
             <h1>All Posts</h1>
