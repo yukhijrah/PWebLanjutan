@@ -35,7 +35,17 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ substr(strip_tags($post->content), 0, 50) }}{{ strlen(strip_tags($post->content)) > 50 ? "..." : "" }}</td>
                             <td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
-                            <td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-default btn-sm">View</a> <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-sm">Edit</a></td>
+                            <td>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default btn-sm">View</a> 
+                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-sm">Edit</a>
+                               
+                                
+                                <form method="POST" action="{{route('posts.destroy', $post->id)}}">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                <button type="submit" class="btn btn-default btn-sm">Delete</button>
+                                </form>
+                            </td>
                         </tr>
 
                     @endforeach
